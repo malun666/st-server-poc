@@ -1,0 +1,15 @@
+POST /api/auth/register
+
+{
+  "username": "testuser",
+  "email": "testuser@example.com",
+  "password": "Test@1234"
+}
+
+###
+
+POST /api/auth/login
+{
+  "username": "testuser",
+  "password": "Test@1234"
+}

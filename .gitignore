@@ -1,0 +1,71 @@
+# .NET Core 构建输出目录
+bin/
+obj/
+
+# Visual Studio 文件
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio Code 文件
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# 用户特定文件
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 构建结果
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015/2017 缓存/选项目录
+.vs/
+
+# 测试结果
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet 包
+*.nupkg
+# NuGet Symbol 包
+*.snupkg
+# 包文件夹
+**/[Pp]ackages/*
+# 除了 build/，可以有 packages/build/
+!**/[Pp]ackages/build/
+# 如果使用 Package Restore，解注释下面这行
+#!**/[Pp]ackages/repositories.config
+
+# Visual Studio 缓存文件
+# 如果你有任何文件需要忽略可以添加在这里
+*.[Cc]ache
+!?*.[Cc]ache/
+
+# 其他
+*.swp
+*.log
+.DS_Store 
