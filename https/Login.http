@@ -1,15 +1,28 @@
-POST /api/auth/register
+### 1. register
+POST http://localhost:3008/api/auth/register
+Content-Type: application/json
 
 {
-  "username": "testuser",
-  "email": "testuser@example.com",
-  "password": "Test@1234"
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "password": "Test123!"
 }
 
-###
+### 2. login
+# @name login
+POST http://localhost:3008/api/auth/login
+Content-Type: application/json
 
-POST /api/auth/login
 {
-  "username": "testuser",
-  "password": "Test@1234"
+    "username": "testuser",
+    "password": "Test123!"
 }
+
+### 3. get user info
+GET http://localhost:3008/api/auth/user
+Authorization: Bearer {{login.response.body.token}}
+
+### 4. logout
+POST http://localhost:3008/api/auth/logout
+Authorization: Bearer {{login.response.body.token}}
+

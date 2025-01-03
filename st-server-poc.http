@@ -1,6 +1,0 @@
-@st_server_poc_HostAddress = http://localhost:5028
-
-GET {{st_server_poc_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

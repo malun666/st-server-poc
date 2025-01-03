@@ -1,15 +1,15 @@
-# .NET Core 构建输出目录
+# .NET Core build output directories
 bin/
 obj/
 
-# Visual Studio 文件
+# Visual Studio files
 .vs/
 *.user
 *.userosscache
 *.sln.docstates
 *.userprefs
 
-# Visual Studio Code 文件
+# Visual Studio Code files
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -20,13 +20,13 @@ obj/
 .idea/
 *.sln.iml
 
-# 用户特定文件
+# User-specific files
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 
-# 构建结果
+# Build results
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -42,30 +42,31 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Visual Studio 2015/2017 缓存/选项目录
+# Visual Studio 2015/2017 cache/options directory
 .vs/
 
-# 测试结果
+# Test results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-# NuGet 包
+# NuGet packages
 *.nupkg
-# NuGet Symbol 包
+# NuGet Symbol packages
 *.snupkg
-# 包文件夹
+# Package folders
 **/[Pp]ackages/*
-# 除了 build/，可以有 packages/build/
+# except build/, which is used as an MSBuild target
 !**/[Pp]ackages/build/
-# 如果使用 Package Restore，解注释下面这行
+# Uncomment if using Package Restore
 #!**/[Pp]ackages/repositories.config
 
-# Visual Studio 缓存文件
-# 如果你有任何文件需要忽略可以添加在这里
+# Visual Studio cache files
+# files ending in .cache can be ignored
 *.[Cc]ache
+# but keep track of directories ending in .cache
 !?*.[Cc]ache/
 
-# 其他
+# Others
 *.swp
 *.log
 .DS_Store 
