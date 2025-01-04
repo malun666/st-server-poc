@@ -17,11 +17,12 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Set environment variables
-ENV ASPNETCORE_URLS=http://+:3008
+ENV PORT=3008
+ENV ASPNETCORE_URLS=http://+:${PORT}
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Expose port
-EXPOSE 3008
+EXPOSE ${PORT}
 
 # Start the application
 ENTRYPOINT ["dotnet", "st-server-poc.dll"] 
