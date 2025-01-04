@@ -1,7 +1,7 @@
 @baseUrl = http://localhost:3008
 @token = {{login.response.body.token}}
 
-### First, login to get token
+### Step 1: Login first to get token (required for all product APIs)
 # @name login
 POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
@@ -11,7 +11,9 @@ Content-Type: application/json
     "password": "Test123!"
 }
 
-### Create new product
+### Step 2: Test Product APIs (all require authentication)
+
+### 2.1 Create single product
 POST {{baseUrl}}/api/product
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -22,17 +24,38 @@ Content-Type: application/json
     "price": 99.99
 }
 
-### Get all products
+### 2.2 Create multiple products
+POST {{baseUrl}}/api/product/batch
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+[
+    {
+        "name": "Product 1",
+        "description": "Description for product 1",
+        "price": 99.99
+    },
+    {
+        "name": "Product 2",
+        "description": "Description for product 2",
+        "price": 149.99
+    },
+    {
+        "name": "Product 3",
+        "description": "Description for product 3",
+        "price": 199.99
+    }
+]
+
+### 2.3 Get all products
 GET {{baseUrl}}/api/product
 Authorization: Bearer {{token}}
 
-### Get product by id
+### 2.4 Get product by id
 GET {{baseUrl}}/api/product/1
 Authorization: Bearer {{token}}
 
-
-
-### Update product
+### 2.5 Update product
 PUT {{baseUrl}}/api/product/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -43,29 +66,6 @@ Content-Type: application/json
     "price": 149.99
 }
 
-### Delete product
+### 2.6 Delete product
 DELETE {{baseUrl}}/api/product/1
-Authorization: Bearer {{token}}
-
-### Batch create products
-POST {{baseUrl}}/api/product/batch
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-[
-    {
-        "name": "Product 3",
-        "description": "Description for product 1",
-        "price": 99.99
-    },
-    {
-        "name": "Product 24",
-        "description": "Description for product 2",
-        "price": 149.99
-    },
-    {
-        "name": "Product 34",
-        "description": "Description for product 3",
-        "price": 199.99
-    }
-] 
+Authorization: Bearer {{token}} 
