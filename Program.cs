@@ -74,7 +74,8 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.Urls.Add($"http://localhost:{app.Configuration["PORT"]}");
+var port = Environment.GetEnvironmentVariable("PORT") ?? "3008";
+app.Urls.Add($"http://0.0.0.0:{port}");
 
 // Enable CORS before other middleware
 app.UseCors("AllowAll");

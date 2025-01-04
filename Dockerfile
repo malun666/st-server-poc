@@ -18,7 +18,7 @@ COPY --from=build /app/publish .
 
 # Set environment variables
 ENV PORT=30080
-ENV ASPNETCORE_URLS=http://+:${PORT}
+ENV ASPNETCORE_URLS="http://0.0.0.0:${PORT}"
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Expose port
