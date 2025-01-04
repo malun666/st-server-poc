@@ -3,11 +3,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add CORS configuration for development
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 // Configure In-Memory Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -54,7 +63,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add global authorization policy
 builder.Services.AddAuthorization(options =>
 {
     options.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -67,6 +75,9 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 app.Urls.Add("http://localhost:3008");
+
+// Enable CORS before other middleware
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();

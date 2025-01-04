@@ -46,7 +46,7 @@ public class AuthController : ControllerBase
             return Unauthorized("Invalid credentials");
 
         var token = GenerateJwtToken(user);
-        return Ok(new { token = token });
+        return Ok(new { token = token, user = user });
     }
 
     [HttpGet("user")]
