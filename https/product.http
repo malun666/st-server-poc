@@ -1,0 +1,71 @@
+@baseUrl = http://localhost:3008
+@token = {{login.response.body.token}}
+
+### First, login to get token
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "Test123!"
+}
+
+### Create new product
+POST {{baseUrl}}/api/product
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Test Product",
+    "description": "This is a test product",
+    "price": 99.99
+}
+
+### Get all products
+GET {{baseUrl}}/api/product
+Authorization: Bearer {{token}}
+
+### Get product by id
+GET {{baseUrl}}/api/product/1
+Authorization: Bearer {{token}}
+
+
+
+### Update product
+PUT {{baseUrl}}/api/product/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Updated Product",
+    "description": "This is an updated product",
+    "price": 149.99
+}
+
+### Delete product
+DELETE {{baseUrl}}/api/product/1
+Authorization: Bearer {{token}}
+
+### Batch create products
+POST {{baseUrl}}/api/product/batch
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+[
+    {
+        "name": "Product 3",
+        "description": "Description for product 1",
+        "price": 99.99
+    },
+    {
+        "name": "Product 24",
+        "description": "Description for product 2",
+        "price": 149.99
+    },
+    {
+        "name": "Product 34",
+        "description": "Description for product 3",
+        "price": 199.99
+    }
+] 

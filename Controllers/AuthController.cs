@@ -7,6 +7,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using ST.Server.Models.Auth;
+
+namespace ST.Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -90,23 +93,4 @@ public class AuthController : ControllerBase
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-}
-
-public class RegisterModel
-{
-    public required string Username { get; set; }
-    public required string Email { get; set; }
-    public required string Password { get; set; }
-}
-
-public class LoginModel
-{
-    public required string Username { get; set; }
-    public required string Password { get; set; }
-}
-
-public class UserInfoModel
-{
-    public required string Username { get; set; }
-    public required string Email { get; set; }
 }

@@ -6,7 +6,7 @@ A .NET Core Web API project with JWT authentication and user management.
 
 - .NET 8.0
 - ASP.NET Core Identity
-- Entity Framework Core (In-Memory)
+- Entity Framework Core (In-Memory) We can use a real database in the future
 - JWT Bearer Authentication
 
 ## Prerequisites
